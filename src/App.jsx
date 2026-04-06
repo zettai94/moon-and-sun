@@ -1,29 +1,27 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import NavBar from './components/NavBar';
 
 
 function App() {
   // default at dark theme, toggle to light if desired
-  const [isDark, setIsDark] = useState(true)
+  const [isDark, setIsDark] = useState(true);
 
   // whenever isDark changes, add/remove "light" class on <html>
   useEffect(() => {
     if (isDark) {
-      document.documentElement.classList.remove('light')
+      document.documentElement.classList.remove('light');
     } else {
-      document.documentElement.classList.add('light')
+      document.documentElement.classList.add('light');
     }
-  }, [isDark])
+  }, [isDark]);
 
-  const toggleTheme = () => setIsDark(prev => !prev)
+  const toggleTheme = () => setIsDark(prev => !prev);
 
   return (
     <div>
-      <p style={{ color: 'var(--orange)', padding: '2rem' }}>
-        App is working — theme is: {isDark ? 'Dark 🌙' : 'Light ☀️'}
-      </p>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <NavBar isDark={isDark} toggleTheme={toggleTheme} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

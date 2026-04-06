@@ -1,0 +1,121 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.45s, border-color 0.45s;
+}
+
+/* LOGO */
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.logo img:hover {
+  transform: rotate(12deg) scale(1.05);
+}
+
+/* NAV LINKS */
+.links {
+  display: flex;
+  gap: 2.8rem;
+  list-style: none;
+}
+
+.links a {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--orange);
+}
+
+/* TOGGLE BUTTON */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem 0.3rem 0.4rem;
+  cursor: pointer;
+  color: var(--text-2);
+  transition: border-color 0.2s;
+}
+
+.toggle:hover {
+  border-color: var(--orange);
+}
+
+/* the sliding track */
+.track {
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+/* the sliding knob */
+.knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-3);
+  transition: transform 0.3s, background 0.3s;
+}
+
+/* when dark mode is active */
+.isDark .track {
+  background: var(--orange-dim);
+  border-color: var(--orange);
+}
+
+.isDark .knob {
+  transform: translateX(16px);
+  background: var(--orange);
+}
+
+.isDark svg {
+  color: var(--orange);
+}
+
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nav { padding: 0 1.5rem; }
+  .links { display: none; }
+}
