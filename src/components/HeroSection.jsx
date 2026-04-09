@@ -1,5 +1,5 @@
-import styles from './HeroSection.module.css'
-import heroImg from '../assets/hero.png'
+import styles from './HeroSection.module.css';
+import heroImg from '../assets/hero.png';
 
 function HeroSection() {
   return (
@@ -44,7 +44,7 @@ function HeroSection() {
       </div>
 
     </section>
-  )
+  );
 }
 
 export default HeroSection;

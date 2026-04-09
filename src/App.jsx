@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NavBar from './components/NavBar';
 import HeroSection from './components/HeroSection';
+import InfoBar from './components/InfoBar';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
     <div>
       <NavBar isDark={isDark} toggleTheme={toggleTheme} />
       <HeroSection />
+      <InfoBar />
     </div>
   );
 }
