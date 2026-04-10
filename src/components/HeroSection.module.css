@@ -31,9 +31,9 @@
 
 .sub {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text-2);
   max-width: 400px;
   margin: 1.6rem 0 0.8rem;
