@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import NavBar from './components/NavBar';
 import HeroSection from './components/HeroSection';
 import InfoBar from './components/InfoBar';
+import MenuSection from './components/MenuSection';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <NavBar isDark={isDark} toggleTheme={toggleTheme} />
       <HeroSection />
       <InfoBar />
+      <MenuSection />
     </div>
   );
 }
