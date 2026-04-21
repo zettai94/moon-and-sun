@@ -5,6 +5,7 @@ import InfoBar from './components/InfoBar';
 import MenuSection from './components/MenuSection';
 import DrinkFeatured from './components/DrinkFeatured';
 import FormSection from './components/FormSection';
+import FooterSection from './components/FooterSection';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <MenuSection />
       <DrinkFeatured isDark={isDark} />
       <FormSection />
+      <FooterSection />
     </div>
   );
 }

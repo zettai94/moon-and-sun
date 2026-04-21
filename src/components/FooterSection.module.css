@@ -1,0 +1,128 @@
+/* ── MAIN FOOTER ── */
+.footer {
+  background: var(--bg-3);
+  border-top: 1px solid var(--border);
+  padding: 4rem 5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  transition: background 0.45s;
+}
+
+/* ── COL 1 — brand ── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.brandName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.accent {
+  color: var(--orange);
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-2);
+}
+
+.taglineSub {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-top: 0.25rem;
+}
+
+/* ── COLS 2,3,4 ── */
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.colTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.colLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colLink {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+  display: block;
+}
+
+.colLink:hover {
+  color: var(--orange);
+  padding-left: 0.4rem;
+}
+
+/* ── BOTTOM BAR ── */
+.bottom {
+  background: var(--bg-3);
+  border-top: 1px solid var(--border);
+  padding: 1.2rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.45s;
+}
+
+.bottom p {
+  font-size: 0.9em;
+  color: var(--text-3);
+  letter-spacing: 0.05em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+
+  .bottom {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    grid-template-columns: 1fr;
+  }
+}
