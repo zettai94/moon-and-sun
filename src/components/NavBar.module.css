@@ -12,7 +12,7 @@
   transition: background 0.45s, border-color 0.45s;
 }
 
-/* LOGO */
+/* ── LOGO ── */
 .logo {
   text-decoration: none;
   display: flex;
@@ -31,7 +31,7 @@
   transform: rotate(12deg) scale(1.05);
 }
 
-/* NAV LINKS */
+/* ── DESKTOP LINKS ── */
 .links {
   display: flex;
   gap: 2.8rem;
@@ -39,7 +39,7 @@
 }
 
 .links a {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-2);
@@ -51,7 +51,14 @@
   color: var(--orange);
 }
 
-/* TOGGLE BUTTON */
+/* ── RIGHT SIDE WRAPPER ── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ── THEME TOGGLE ── */
 .toggle {
   display: flex;
   align-items: center;
@@ -69,7 +76,6 @@
   border-color: var(--orange);
 }
 
-/* the sliding track */
 .track {
   width: 34px;
   height: 18px;
@@ -81,7 +87,6 @@
   transition: background 0.3s;
 }
 
-/* the sliding knob */
 .knob {
   position: absolute;
   top: 2px;
@@ -93,7 +98,6 @@
   transition: transform 0.3s, background 0.3s;
 }
 
-/* when dark mode is active */
 .isDark .track {
   background: var(--orange-dim);
   border-color: var(--orange);
@@ -114,8 +118,106 @@
   text-transform: uppercase;
 }
 
-/* RESPONSIVE */
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;         /* hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s, width 0.3s;
+  transform-origin: center;
+}
+
+/* animate to X when open */
+.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE DRAWER ── */
+.drawer {
+  position: fixed;
+  top: 68px;          /* sits right below navbar */
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  max-height: 0;      /* collapsed by default */
+  transition: max-height 0.35s ease, border-color 0.45s;
+}
+
+.drawerOpen {
+  max-height: 400px;  /* expands when open */
+}
+
+.drawerLinks {
+  list-style: none;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.drawerLinks li {
+  border-bottom: 1px solid var(--border);
+}
+
+.drawerLinks li:last-child {
+  border-bottom: none;
+}
+
+.drawerLinks a {
+  display: block;
+  padding: 1rem 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.drawerLinks a:hover {
+  color: var(--orange);
+  padding-left: 1rem;
+}
+
+/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .nav { padding: 0 1.5rem; }
-  .links { display: none; }
+  .nav {
+    padding: 0 1.5rem;
+  }
+
+  /* hide desktop links */
+  .links {
+    display: none;
+  }
+
+  /* show hamburger */
+  .hamburger {
+    display: flex;
+  }
 }
