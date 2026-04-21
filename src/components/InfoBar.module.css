@@ -17,7 +17,7 @@
 }
 
 .label {
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--orange);
@@ -26,7 +26,7 @@
 
 .value {
   font-family: 'Playfair Display', serif;
-  font-size: 1.05rem;
+  font-size: 1.23rem;
   color: var(--text);
 }
 

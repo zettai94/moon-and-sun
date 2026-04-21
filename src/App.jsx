@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import HeroSection from './components/HeroSection';
 import InfoBar from './components/InfoBar';
 import MenuSection from './components/MenuSection';
+import DrinkFeatured from './components/DrinkFeatured';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <HeroSection />
       <InfoBar />
       <MenuSection />
+      <DrinkFeatured isDark={isDark} />
     </div>
   );
 }
