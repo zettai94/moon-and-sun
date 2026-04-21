@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import InfoBar from './components/InfoBar';
 import MenuSection from './components/MenuSection';
 import DrinkFeatured from './components/DrinkFeatured';
+import FormSection from './components/FormSection';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <InfoBar />
       <MenuSection />
       <DrinkFeatured isDark={isDark} />
+      <FormSection />
     </div>
   );
 }
