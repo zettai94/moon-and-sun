@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import LandingPage from './pages/LandingPage';
 import StoryPage from './pages/StoryPage';
+import MenuPage from './pages/MenuPage';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           }
         />
         <Route path="/story" element={<StoryPage />} />
+        <Route path="/menu" element={<MenuPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,324 @@
+/* ══════════════════════════════
+   PAGE
+══════════════════════════════ */
+.page {
+  background: var(--bg);
+  min-height: 100vh;
+  padding-top: 68px;
+  transition: background 0.45s;
+}
+
+/* ══════════════════════════════
+   REVEAL ANIMATION
+══════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  padding: 5rem 5rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.heroInner {
+  max-width: 700px;
+}
+
+.heroTag {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.8rem;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.heroTitle em {
+  font-style: italic;
+  color: var(--orange);
+  display: block;
+}
+
+.heroSub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   STICKY TABS
+══════════════════════════════ */
+.tabsWrapper {
+  position: sticky;
+  top: 68px;       /* sits right below navbar */
+  z-index: 100;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.45s;
+}
+
+.tabs {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-2);
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom: -1px;  /* overlap the wrapper border */
+}
+
+.tab:hover {
+  color: var(--orange);
+}
+
+.tabActive {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+}
+
+.tabIcon {
+  font-size: 1rem;
+}
+
+/* ══════════════════════════════
+   MENU SECTIONS
+══════════════════════════════ */
+.sections {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5rem 6rem;
+}
+
+.menuSection {
+  padding-top: 5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5rem;
+}
+
+.menuSection:last-child {
+  border-bottom: none;
+}
+
+/* ── section header ── */
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
+
+.sectionHeaderLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.sectionIcon {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.sectionTag {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.3rem;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* ── download button ── */
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.3rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.downloadBtn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* ══════════════════════════════
+   PDF VIEWER
+══════════════════════════════ */
+.pdfWrapper {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/* each page stacks vertically, no gaps */
+.pdfPage {
+  width: 100%;
+  line-height: 0;       /* removes phantom space under canvas */
+  border-bottom: 1px solid var(--border);
+}
+
+.pdfPage:last-child {
+  border-bottom: none;
+}
+
+/* react-pdf canvas fills container */
+.pdfPage canvas {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* ══════════════════════════════
+   LOADING & ERROR STATES
+══════════════════════════════ */
+.pdfStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  gap: 1rem;
+  text-align: center;
+  color: var(--text-2);
+  font-size: 0.88rem;
+}
+
+.pdfStatusIcon {
+  font-size: 3rem;
+}
+
+.pdfStatusTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.pdfStatusSub {
+  font-size: 0.82rem;
+  color: var(--text-2);
+}
+
+/* loading spinner */
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.downloadBtnLarge {
+  display: inline-flex;
+  padding: 0.85rem 2rem;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+
+.downloadBtnLarge:hover {
+  background: var(--orange-hover);
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 900px) {
+  .hero {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .tabs {
+    padding: 0 1.5rem;
+    overflow-x: auto;
+  }
+
+  .tab {
+    padding: 1rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .sections {
+    padding: 0 1.5rem 4rem;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pdfFrame {
+    height: 60vh;
+    min-height: 400px;
+  }
+}

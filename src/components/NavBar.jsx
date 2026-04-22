@@ -40,7 +40,7 @@ function NavBar({ isDark, toggleTheme, setActiveTab }) {
         closeMenu();
         setActiveTab(tab);
 
-        if(location.pathnameme === '/') {
+        if(location.pathname === '/') {
             const target = document.querySelector('#book');
             if(target) target.scrollIntoView({ behavior: 'smooth' });
         }
@@ -54,10 +54,11 @@ function NavBar({ isDark, toggleTheme, setActiveTab }) {
         }
     }
 
-    //scroll from top if navigated from home to story page
-    const handleStoryClick = () => {
+    //start from the top of page when navi elsewhere
+    const handlePageNav = (e, path) => {
+        e.preventDefault();
         closeMenu();
-        navigate('/story');
+        navigate(path);
         setTimeout(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 50);
@@ -74,15 +75,14 @@ function NavBar({ isDark, toggleTheme, setActiveTab }) {
             <ul className={styles.links}>
                 <li><a href="/">Home</a></li>
                 <li>
-                    <a hred="/story" onClick={(e) => {
-                        e.preventDefault();
-                        handleStoryClick();
-                    }}>
+                    <a href="/story" onClick={(e) => handlePageNav(e, '/story')}>
                         Our Story
                     </a>
                 </li>
-                <li><a href="#menu" onClick={(e) => handleAnchorClick(e, '#menu')}>
-                    Menu</a>
+                <li>
+                    <a href="/menu" onClick={(e) => handlePageNav(e, '/menu')}>
+                        Menu
+                    </a>
                 </li>
                 <li><a href="#featured" onClick={(e) => handleAnchorClick(e, '#featured')}>
                     Drinks</a>
@@ -149,16 +149,12 @@ function NavBar({ isDark, toggleTheme, setActiveTab }) {
                 <ul className={styles.drawerLinks}>
                     <li><Link to="/" onClick={closeMenu}>Home</Link></li>
                     <li>
-                        <a href="/story" onClick={(e) => {
-                                e.preventDefault()
-                                handleStoryClick()
-                        }}>
-                                Our Story
+                        <a href="/story" onClick={(e) => handlePageNav(e, '/story')}>
+                            Our Story
                         </a>
                     </li>
                     <li>
-                        <a href="#menu"
-                            onClick={(e) => handleAnchorClick(e, '#menu')}>
+                        <a href="/menu" onClick={(e) => handlePageNav(e, '/menu')}>
                             Menu
                         </a>
                     </li>
