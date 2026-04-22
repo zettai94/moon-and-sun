@@ -1,5 +1,5 @@
 import styles from './FooterSection.module.css'
-import logo from '../assets/moon&Sun_transparent.png'
+import logo from '../assets/moon_and_sun_transparent.png'
 
 const FOOTER_LINKS = {
   visit: [

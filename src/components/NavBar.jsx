@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import styles from "./NavBar.module.css";
-import logo from "../assets/moon&Sun_transparent.png";
+import logo from "../assets/moon_and_sun_transparent.png";
 
 
 function NavBar({ isDark, toggleTheme, setActiveTab }) {
