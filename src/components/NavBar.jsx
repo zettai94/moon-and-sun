@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import logo from "../assets/moon&Sun_transparent.png";
 
@@ -8,6 +8,41 @@ function NavBar({ isDark, toggleTheme}) {
     const [ menuOpen, setMenuOpen ] = useState(false);
     const toggleMenu = () => setMenuOpen(prev => !prev);
     const closeMenu = () => setMenuOpen(false);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleAnchorClick = (e, hash) => {
+        e.preventDefault();
+        closeMenu();
+
+        if(location.pathname === '/') {
+            // already on home page, just scroll
+            const target = document.querySelector(hash);
+            if(target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        else
+        {
+            navigate('/');
+            setTimeout(() => {
+                const target = document.querySelector(hash);
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }
+
+    //scroll from top if navigated from home to story page
+    const handleStoryClick = () => {
+        closeMenu();
+        navigate('/story');
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 50);
+    }
 
     return (
         <nav className={styles.nav}>
@@ -20,18 +55,29 @@ function NavBar({ isDark, toggleTheme}) {
             <ul className={styles.links}>
                 <li><a href="/">Home</a></li>
                 <li>
-                {/* Link for page navigation */}
-                <Link to="/story">Our Story</Link>
+                    <a hred="/story" onClick={(e) => {
+                        e.preventDefault();
+                        handleStoryClick();
+                    }}>
+                        Our Story
+                    </a>
                 </li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#featured">Drinks</a></li>
-                <li><a href="#book">Reserve</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#menu" onClick={(e) => handleAnchorClick(e, '#menu')}>
+                    Menu</a>
+                </li>
+                <li><a href="#featured" onClick={(e) => handleAnchorClick(e, '#featured')}>
+                    Drinks</a>
+                </li>
+                <li><a href="#book" onClick={(e) => handleAnchorClick(e, '#book')}>
+                    Reserve</a>
+                </li>
+                <li><a href="#contact" onClick={(e) => handleAnchorClick(e, '#contact')}>
+                    Contact</a>
+                </li>
             </ul>
 
             {/* RIGHT SIDE */}
             <div className={styles.right}>
-
                 {/* THEME TOGGLE */}
                 <button
                     className={`${styles.toggle} ${isDark ? styles.isDark : ''}`}
@@ -82,14 +128,39 @@ function NavBar({ isDark, toggleTheme}) {
             {/* MOBILE DRAWER */}
             <div className={`${styles.drawer} ${menuOpen ? styles.drawerOpen : ''}`}>
                 <ul className={styles.drawerLinks}>
-                <li><a href="#about"    onClick={closeMenu}>Home</a></li>
-                <li>
-                    <Link to="/story" onClick={closeMenu}>Our Story</Link>
-                </li>
-                <li><a href="#menu"     onClick={closeMenu}>Menu</a></li>
-                <li><a href="#featured" onClick={closeMenu}>Drinks</a></li>
-                <li><a href="#book"     onClick={closeMenu}>Reserve</a></li>
-                <li><a href="#contact"  onClick={closeMenu}>Contact</a></li>
+                    <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+                    <li>
+                        <a href="/story" onClick={(e) => {
+                                e.preventDefault()
+                                handleStoryClick()
+                        }}>
+                                Our Story
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#menu"
+                            onClick={(e) => handleAnchorClick(e, '#menu')}>
+                            Menu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#featured"
+                            onClick={(e) => handleAnchorClick(e, '#featured')}>
+                            Drinks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#book"
+                            onClick={(e) => handleAnchorClick(e, '#book')}>
+                            Reserve
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            onClick={(e) => handleAnchorClick(e, '#contact')}>
+                            Contact
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
