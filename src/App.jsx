@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import HeroSection from './components/HeroSection';
-import InfoBar from './components/InfoBar';
-import MenuSection from './components/MenuSection';
-import DrinkFeatured from './components/DrinkFeatured';
-import FormSection from './components/FormSection';
-import FooterSection from './components/FooterSection';
+import LandingPage from './pages/LandingPage';
+import StoryPage from './pages/StoryPage';
 
 
 function App() {
@@ -24,15 +21,13 @@ function App() {
   const toggleTheme = () => setIsDark(prev => !prev);
 
   return (
-    <div>
+    <BrowserRouter>
       <NavBar isDark={isDark} toggleTheme={toggleTheme} />
-      <HeroSection />
-      <InfoBar />
-      <MenuSection />
-      <DrinkFeatured isDark={isDark} />
-      <FormSection />
-      <FooterSection />
-    </div>
+      <Routes>
+        <Route path="/" element={<LandingPage isDark={isDark} />} />
+        <Route path="/story" element={<StoryPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

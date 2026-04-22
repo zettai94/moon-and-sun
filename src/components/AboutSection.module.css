@@ -1,0 +1,357 @@
+.about {
+  background: var(--bg);
+  transition: background 0.45s;
+}
+
+/* ══════════════════════════════
+   SCROLL REVEAL ANIMATION
+══════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════
+   SECTION LAYOUT
+══════════════════════════════ */
+.storySection {
+  padding: 7rem 5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.storySectionAlt {
+  background: var(--bg-2);
+  transition: background 0.45s;
+}
+
+.storySectionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* ══════════════════════════════
+   TEXT COLUMN
+══════════════════════════════ */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.storyTitle {
+  line-height: 1.1;
+}
+
+.bodyText {
+  font-size: 0.95rem;
+  color: var(--text-2);
+  line-height: 1.9;
+}
+
+.highlight {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+.closingLine {
+  color: var(--orange);
+  font-style: italic;
+}
+
+/* ══════════════════════════════
+   DATE STRIP
+══════════════════════════════ */
+.dateStrip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+.dateItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.dateNumber {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.dateLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.dateDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════
+   CRAFT PILLARS
+══════════════════════════════ */
+.pillars {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.pillarIcon {
+  font-size: 1.4rem;
+}
+
+.pillarLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.pillarArrow {
+  color: var(--orange);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════
+   LOCATION TAG
+══════════════════════════════ */
+.locationTag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  margin-top: 0.5rem;
+}
+
+.locationPin {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.locationStreet {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.locationCity {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-top: 0.2rem;
+}
+
+/* ══════════════════════════════
+   PHOTO COLUMN
+══════════════════════════════ */
+.photoCol {
+  position: relative;
+}
+
+.photoWrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.photoWrap:hover .photoImg {
+  transform: scale(1.03);
+}
+
+.photoImg {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+/* overlay — sits at the bottom of every photo */
+.photoOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem 1.5rem 1.5rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    transparent 100%
+  );
+}
+
+.photoOverlayText {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.photoOverlayText em {
+  font-style: italic;
+  color: var(--orange);
+  display: block;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
+
+:global(html.light) .locationPhoto {
+  filter: saturate(1);
+}
+
+
+/* ══════════════════════════════
+   CLOSING QUOTE
+══════════════════════════════ */
+.closingQuote {
+  padding: 6rem 5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quoteText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.quoteText em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.quoteSub {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 900px) {
+  .storySection {
+    padding: 4rem 1.5rem;
+  }
+
+  .storySectionInner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* on mobile, photo always goes above text */
+  .storySectionInner .photoCol {
+    order: -1;
+  }
+
+  .pillars {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .pillarArrow {
+    font-size: 0.8rem;
+  }
+
+  .closingQuote {
+    padding: 4rem 1.5rem;
+  }
+
+  .dateStrip {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* ══════════════════════════════
+   COFFEE PHOTO — Section 2
+══════════════════════════════ */
+.coffeePhotoWrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.coffeePhoto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.coffeePhotoWrap:hover .coffeePhoto {
+  transform: scale(1.03);
+}
+
+.coffeePhotoTag {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: var(--orange);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.coffeePhotoTag span:first-child {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.coffeePhotoTag span:last-child {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+}
+}
