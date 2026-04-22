@@ -4,7 +4,7 @@ import styles from "./NavBar.module.css";
 import logo from "../assets/moon&Sun_transparent.png";
 
 
-function NavBar({ isDark, toggleTheme}) {
+function NavBar({ isDark, toggleTheme, setActiveTab }) {
     const [ menuOpen, setMenuOpen ] = useState(false);
     const toggleMenu = () => setMenuOpen(prev => !prev);
     const closeMenu = () => setMenuOpen(false);
@@ -31,6 +31,25 @@ function NavBar({ isDark, toggleTheme}) {
                 if(target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
+            }, 100);
+        }
+    }
+
+    const handleFormNav = (e, tab) => {
+        e.preventDefault();
+        closeMenu();
+        setActiveTab(tab);
+
+        if(location.pathnameme === '/') {
+            const target = document.querySelector('#book');
+            if(target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+        else
+        {
+            navigate('/');
+            setTimeout(() => {
+                const target = document.querySelector('#book');
+                if(target) target.scrollIntoView({ behavior: 'smooth' });
             }, 100);
         }
     }
@@ -68,10 +87,10 @@ function NavBar({ isDark, toggleTheme}) {
                 <li><a href="#featured" onClick={(e) => handleAnchorClick(e, '#featured')}>
                     Drinks</a>
                 </li>
-                <li><a href="#book" onClick={(e) => handleAnchorClick(e, '#book')}>
+                <li><a href="#book" onClick={(e) => handleFormNav(e, 'reservation')}>
                     Reserve</a>
                 </li>
-                <li><a href="#contact" onClick={(e) => handleAnchorClick(e, '#contact')}>
+                <li><a href="#contact" onClick={(e) => handleFormNav(e, 'contact')}>
                     Contact</a>
                 </li>
             </ul>
@@ -151,13 +170,13 @@ function NavBar({ isDark, toggleTheme}) {
                     </li>
                     <li>
                         <a href="#book"
-                            onClick={(e) => handleAnchorClick(e, '#book')}>
+                            onClick={(e) => handleFormNav(e, 'reservation')}>
                             Reserve
                         </a>
                     </li>
                     <li>
                         <a href="#contact"
-                            onClick={(e) => handleAnchorClick(e, '#contact')}>
+                            onClick={(e) => handleFormNav(e, 'contact')}>
                             Contact
                         </a>
                     </li>

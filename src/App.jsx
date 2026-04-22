@@ -9,6 +9,9 @@ function App() {
   // default at dark theme, toggle to light if desired
   const [isDark, setIsDark] = useState(true);
 
+  //active form from navbar: reserve and contact
+  const [activeTab, setActiveTab] = useState('contact');
+
   // whenever isDark changes, add/remove "light" class on <html>
   useEffect(() => {
     if (isDark) {
@@ -22,9 +25,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar isDark={isDark} toggleTheme={toggleTheme} />
+      <NavBar 
+        isDark={isDark} 
+        toggleTheme={toggleTheme}
+        setActiveTab={setActiveTab} 
+      />
       <Routes>
-        <Route path="/" element={<LandingPage isDark={isDark} />} />
+        <Route path="/" element={
+            <LandingPage 
+              isDark={isDark}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab} 
+            />
+          }
+        />
         <Route path="/story" element={<StoryPage />} />
       </Routes>
     </BrowserRouter>

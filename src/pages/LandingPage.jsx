@@ -6,14 +6,17 @@ import FormSection from '../components/FormSection';
 import FooterSection from '../components/FooterSection';
 
 
-function LandingPage({ isDark }) {
+function LandingPage({ isDark, activeTab, setActiveTab }) {
  return (
     <div>
       <HeroSection />
       <InfoBar />
       <MenuSection />
       <DrinkFeatured isDark={isDark} />
-      <FormSection />
+      <FormSection 
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
       <FooterSection />
     </div>
   );
